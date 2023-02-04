@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Prediksi Kebakaran Hutan</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+    }
+    label {
+      display: inline-block;
+      width: 120px;
+      text-align: right;
+      margin-right: 10px;
+    }
+    h1 {
+      text-align: center;
+    }
+    form {
+      margin: 20px auto;
+      width: 400px;
+      text-align: center;
+    }
+    input[type="text"], input[type="submit"] {
+      padding: 10px 20px;
+      margin-bottom: 20px;
+    }
+    .results {
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <h1>Prediksi Kebakaran Hutan </h1>
+  <form action="{{ url_for('predict') }}" method="post">
+    <label for="temp">Temperature:</label>
+    <input type="text" id="temp" name="temp" required><br><br>
+
+    <label for="RH">Kelembaban:</label>
+    <input type="text" id="RH" name="RH" required><br><br>
+
+    <label for="wind">Angin:</label>
+    <input type="text" id="wind" name="wind" required><br><br>
+
+    <input  style="background-color: green; color: white;" type="submit" value="Predict">
+  </form>
+  <br><br>
+  <h2 style="text-align: center;">Hasil:</h2>
+  <div class="results">
+    <h3>Temperature: {{temp}}</h3>
+    <h3>Kelembaban: {{RH}}</h3>
+    <h3>Angin: {{wind}}</h3>
+    <h3 style="color: red;">Hasil: {{result}}</h3>
+  </div>
+</body>
+</html>
